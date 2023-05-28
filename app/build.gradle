@@ -1,0 +1,92 @@
+plugins {
+    id 'com.android.application'
+    id 'com.chaquo.python'
+}
+
+android {
+    namespace 'com.example.tfg_dmae'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.tfg_dmae"
+        minSdk 31
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+        python {
+            buildPython "C:/Users/inirolga/AppData/Local/Programs/Python/Python310/python.exe"
+
+            pip {
+                install "wheel"
+                install "opencv-python"
+                install "tensorflow"
+                install "scikit-learn"
+                install "scipy"
+                install "matplotlib"
+                install "pandas"
+                install "seaborn"
+
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.leanback:leanback:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    testImplementation 'junit:junit:4.13.2'
+
+    //MEDIAPIPE
+    // MediaPipe solution-core is the foundation of any MediaPipe Solutions.
+    implementation 'com.google.mediapipe:solution-core:latest.release'
+    // Optional: MediaPipe Face Detection Solution.
+    implementation 'com.google.mediapipe:facedetection:latest.release'
+    // Optional: MediaPipe Face Mesh Solution.
+    implementation 'com.google.mediapipe:facemesh:latest.release'
+    // Optional: MediaPipe Hands Solution.
+    implementation 'com.google.mediapipe:hands:latest.release'
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'androidx.core:core:1.7.0'
+
+    //CameraX
+    def camerax_version = "1.1.0-beta01"
+    implementation "androidx.camera:camera-core:${camerax_version}"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-video:${camerax_version}"
+
+    implementation "androidx.camera:camera-view:${camerax_version}"
+    implementation "androidx.camera:camera-extensions:${camerax_version}"
+
+    implementation "androidx.core:core-splashscreen:1.0.1"
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

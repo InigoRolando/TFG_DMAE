@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <view
+        android:id="@+id/previewView"
+        class="androidx.camera.view.PreviewView"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="14dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/white"
+        android:onClick="backToMain"
+        android:scaleType="fitCenter"
+        android:src="@drawable/arrow_back" />
+
+    <TextView
+        android:id="@+id/gestureLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/black"
+        android:text="Manual de usuario"></TextView>
+    </LinearLayout>
+    <WebView
+        android:id="@+id/userManual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="55dp"
+        android:textColor="@color/black"
+        android:layout_marginRight="20dp"
+
+        ></WebView>
+
+</RelativeLayout>
